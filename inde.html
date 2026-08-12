@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zohra Ka Birthday 🎂❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            color: white;
+            background: linear-gradient(135deg, #ff4f9a, #ff9acb, #8e245f);
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .box {
+            width: 92%;
+            max-width: 550px;
+            padding: 40px 25px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.17);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+            animation: appear 1s ease;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin: 18px 0;
+        }
+
+        p {
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .emoji {
+            font-size: 75px;
+            animation: bounce 1.3s infinite;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            background: white;
+            color: #e52c80;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+        .balloon {
+            position: fixed;
+            bottom: -100px;
+            font-size: 45px;
+            animation: balloonUp 7s linear forwards;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .confetti {
+            position: fixed;
+            top: -20px;
+            font-size: 25px;
+            animation: confettiFall 4s linear forwards;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        @keyframes balloonUp {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-120vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confettiFall {
+            from {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 32px;
+            }
+
+            p {
+                font-size: 17px;
+            }
+
+            .emoji {
+                font-size: 65px;
+            }
+
+            .box {
+                padding: 35px 20px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 14px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<button id="musicBtn" onclick="playMusic()">
+    🎵 Birthday Music
+</button>
+
+    <div class="container">
+
+        <div class="box" id="box">
+
+            <div class="emoji">🎁</div>
+
+            <h1>Zohra ❤️</h1>
+
+            <p>
+                Tumhare liye ek chhota sa<br>
+                birthday surprise hai... 🎀
+            </p>
+
+            <button onclick="surprise()">
+                Surprise Dekho 🎁
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function surprise() {
+
+            document.getElementById("box").innerHTML = `
+
+                <div class="emoji">🎂</div>
+
+                <h1>Happy Birthday Zohra! 🎉❤️</h1>
+
+                <p>
+                    Aaj ka din bahut hi khaas hai,<br>
+                    kyunki aaj tumhara birthday hai. 🥰
+                </p>
+
+                <button onclick="wish()">
+                    Birthday Wish Dekho 💌
+                </button>
+
+            `;
+
+            balloons();
+        }
+
+
+        function wish() {
+
+            document.getElementById("box").innerHTML = `
+
+                <div class="emoji">💖</div>
+
+                <h1>Zohra ❤️</h1>
+
+                <p>
+                    Dil se dua hai ki tumhari zindagi<br>
+                    hamesha khushiyon se bhari rahe. 🌸
+                    <br><br>
+                    Tumhari har dua qubool ho,<br>
+                    har sapna poora ho<br>
+                    aur tum hamesha muskurati raho. 🤲❤️
+                </p>
+
+                <button onclick="special()">
+                    Ek Aur Surprise 💕
+                </button>
+
+            `;
+
+            confetti();
+        }
+
+
+        function special() {
+
+            document.getElementById("box").innerHTML = `
+
+                <div class="emoji">🥰</div>
+
+                <h1>Zohra...</h1>
+
+                <p>
+                    Tumhari smile bahut special hai. ❤️
+                    <br><br>
+                    Isliye aaj ke din bas itna kehna hai...
+                    <br><br>
+                    <b>
+                    Hamesha khush raho,<br>
+                    hamesha muskurati raho. 💕
+                    </b>
+                </p>
+
+                <button onclick="finalWish()">
+                    Last Surprise 🎂
+                </button>
+
+            `;
+
+            balloons();
+            confetti();
+        }
+
+
+        function finalWish() {
+
+            document.getElementById("box").innerHTML = `
+
+                <div class="emoji">🎂💖</div>
+
+                <h1>Happy Birthday Zohra! 🎉</h1>
+
+                <p style="font-size:22px;font-weight:bold;">
+                    Allah tumhe hamesha khush rakhe. 🤲❤️
+                </p>
+
+                <p>
+                    Tumhari zindagi mein<br>
+                    sirf khushiyan hi khushiyan ho. 🌷
+                    <br><br>
+                    Janamdin ki bahut bahut mubarak ho! 🎂🥳❤️
+                </p>
+
+                <div style="font-size:45px;margin-top:20px;">
+                    🎈 🎂 🎈
+                </div>
+
+            `;
+
+            balloons();
+            confetti();
+
+            for (let i = 0; i < 30; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+        }
+
+
+        function balloons() {
+
+            const balloonList = [
+                "🎈",
+                "🎈",
+                "🎈",
+                "🎈",
+                "🎈"
+            ];
+
+            for (let i = 0; i < 15; i++) {
+
+                setTimeout(function() {
+
+                    const balloon =
+                        document.createElement("div");
+
+                    balloon.className = "balloon";
+
+                    balloon.innerHTML =
+                        balloonList[
+                            Math.floor(
+                                Math.random() *
+                                balloonList.length
+                            )
+                        ];
+
+                    balloon.style.left =
+                        Math.random() * 100 + "vw";
+
+                    balloon.style.animationDuration =
+                        (5 + Math.random() * 4) + "s";
+
+                    document.body.appendChild(balloon);
+
+                    setTimeout(function() {
+                        balloon.remove();
+                    }, 9000);
+
+                }, i * 200);
+            }
+        }
+
+
+        function confetti() {
+
+            const items = [
+                "🎉",
+                "✨",
+                "💖",
+                "💕",
+                "🎊",
+                "🌸"
+            ];
+
+            for (let i = 0; i < 40; i++) {
+
+                setTimeout(function() {
+
+                    const piece =
+                        document.createElement("div");
+
+                    piece.className = "confetti";
+
+                    piece.innerHTML =
+                        items[
+                            Math.floor(
+                                Math.random() *
+                                items.length
+                            )
+                        ];
+
+                    piece.style.left =
+                        Math.random() * 100 + "vw";
+
+                    piece.style.animationDuration =
+                        (3 + Math.random() * 3) + "s";
+
+                    document.body.appendChild(piece);
+
+                    setTimeout(function() {
+                        piece.remove();
+                    }, 7000);
+
+                }, i * 80);
+            }
+        }
+
+
+        function createHeart() {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "confetti";
+
+            heart.innerHTML = "❤️";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            document.body.appendChild(heart);
+
+            setTimeout(function() {
+                heart.remove();
+            }, 5000);
+        }
+
+    </script>
+
+</html>
+
